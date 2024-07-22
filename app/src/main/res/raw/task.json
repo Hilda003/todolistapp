@@ -1,0 +1,25 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Belajar Android Dasar",
+      "description": "Belajar dasar-dasar materi android development",
+      "dueDate": 1577811600000,
+      "completed": false
+    },
+    {
+      "id": 2,
+      "title": "Belajar Kotlin Fundamental",
+      "description": "Belajar dasar-dasar materi kotlin programming language",
+      "dueDate": 1655226000000,
+      "completed": true
+    },
+    {
+      "id": 3,
+      "title": "Belajar Implementation android dengan kotlin",
+      "description": "Belajar implementasi android dengan kotlin",
+      "dueDate": 1735578000000,
+      "completed": false
+    }
+  ]
+}

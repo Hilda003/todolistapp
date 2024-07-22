@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">TodoListApp</string>
+    <string name="task_marked_complete">task completed</string>
+    <string name="task_marked_active">task active</string>
+    <string name="add_task">add task</string>
+    <string name="title_task">Title Task</string>
+    <string name="description_task">Description Task</string>
+    <string name="_22_07_2004">22/07/2024</string>
+    <string name="due_date">due date</string>
+    <string name="action_save">save</string>
+</resources>
