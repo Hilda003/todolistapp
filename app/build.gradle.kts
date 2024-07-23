@@ -44,24 +44,7 @@ android {
 dependencies {
     implementation(libs.androidx.activity)
     ext {
-        set("kotlin_version", "1.9.10")
-
-        set("core_version", "1.12.0")
-        set("appcompat_version", "1.6.1")
-        set("material_version", "1.10.0")
-        set("constraint_version", "2.1.4")
-
-        set("junit_version", "4.13.2")
-        set("ext_junit_version", "1.1.5")
-        set("espresso_version", "3.5.1")
-        set("runner_version", "1.2.0")
-
         set("room_version", "2.6.0")
-        set("arch_lifecycle_version", "2.6.2")
-        set("lifecycle_version", "2.6.1")
-        set("work_version", "2.8.1")
-        set("preference_version", "1.2.1")
-        set("paging_version", "2.1.2")
     }
 
     implementation(libs.kotlin.stdlib)
@@ -89,6 +72,10 @@ dependencies {
 
     implementation(libs.androidx.paging.runtime.ktx)
 
-    androidTestUtil("androidx.test:orchestrator:1.5.0")
+    androidTestUtil(libs.androidx.orchestrator)
     androidTestImplementation(libs.kaspresso)
+
+    implementation (libs.retrofit)
+    implementation (libs.converter.gson)
+    implementation (libs.logging.interceptor)
 }

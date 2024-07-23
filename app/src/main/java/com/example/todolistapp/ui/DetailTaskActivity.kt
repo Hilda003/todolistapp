@@ -1,12 +1,10 @@
 package com.example.todolistapp.ui
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.dicoding.todoapp.data.Task
@@ -15,20 +13,19 @@ import com.dicoding.todoapp.utils.TASK_ID
 import com.example.todolistapp.R
 import com.example.todolistapp.ViewModelFactory
 import com.example.todolistapp.databinding.ActivityDetailTaskBinding
+import com.example.todolistapp.retrofit.ApiConfig
 import com.example.todolistapp.viewmodel.DetailTaskViewModel
 
 class DetailTaskActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailTaskBinding
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = ActivityDetailTaskBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+
+
 
         val taskById = intent.getIntExtra(TASK_ID, -1)
 
@@ -45,7 +42,16 @@ class DetailTaskActivity : AppCompatActivity() {
             detailTaskViewModel.deleteTask()
             finish()
         }
-
+        binding.btnGetQuote.setOnClickListener {
+            ApiConfig().getQuotes(this) { quotes ->
+                if (quotes.isNotEmpty()) {
+                    val quote = quotes[0]
+                    binding.quote.text = quote.content
+                } else {
+                    binding.quote.text = "No quotes found"
+                }
+            }
+        }
         //TODO 11 : Show detail task and implement delete action
     }
     private fun showTaskDetail(task: Task) {
